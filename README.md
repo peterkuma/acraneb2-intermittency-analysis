@@ -21,7 +21,7 @@ Experiments
 The experiments are based on ALARO cycle 38 (38t1tr_op3) with a time step
 of 3 min.
 
-### Shortwave intermittency base
+### Shortwave Intermittency Base
 
 Namelist: `shortwave-intermittency-base.nml`
 
@@ -31,13 +31,13 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Base configuration for shortwave intermittency.
+Base configuration for shortwave intermittency evaluation.
 
-* Shortwave gaseous transmissivities computed once per 1 h.
+* Shortwave gaseous transmissivities computed at every time step.
 * Longwave gaseous transmissivities computed once per 1 h.
-* Calibration of longwave NER weights once per 3 h.
+* Calibration of longwave NER weights computed once per 3 h.
 
-### Shortwave intermittency 1 h
+### Shortwave Intermittency 1 h
 
 Namelist: `shortwave-intermittency-1h.nml`
 
@@ -49,5 +49,5 @@ Configuration:
 
 Shortwave intermittency enabled with 1 h intermittency.
 
-* Based on Shortwave intermittency base.
-* Shortwave transmissivities computed every 1 h.
+* Based on *Shortwave Intermittency Base*.
+* Shortwave gaseous transmissivities computed once per 1 h.
