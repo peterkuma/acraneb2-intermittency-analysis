@@ -13,7 +13,7 @@ Results
 Datasets with results need to be downloaded separately from an external
 repository with:
 
-    ./download-results.sh
+    ./download_results.sh
 
 Experiments
 -----------
@@ -51,3 +51,15 @@ Shortwave intermittency enabled with 1 h intermittency.
 
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 1 h.
+
+Usage
+-----
+
+    # Plot shortwave heating rate error.
+    ./shortwave_heating_rate_error.R shortwave_heating_rate_error.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc
+
+    # Plot shortwave heating rate time series.
+    ./shortwave_heating_rate_timeseries.R shortwave_heating_rate_timeseries.pdf results/shortwave-intermittency-1h.nc 2009-06-29
+
+    # Plot shortwave heating rate error time series.
+    ./shortwave_heating_rate_error_timeseries.R shortwave_heating_rate_error_timeseries.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc 2009-06-29
