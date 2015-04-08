@@ -52,6 +52,21 @@ Shortwave intermittency enabled with 1 h intermittency.
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 1 h.
 
+### Shortwave Intermittency 30 min
+
+Namelist: `shortwave-intermittency-30min.nml`
+
+Configuration:
+
+    NSORAYFR=10
+    NTHRAYFR=-1
+    NRAUTOEV=3
+
+Shortwave intermittency enabled with 30 min intermittency.
+
+* Based on *Shortwave Intermittency Base*.
+* Shortwave gaseous transmissivities computed once per 30 min.
+
 Usage
 -----
 
