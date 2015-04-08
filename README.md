@@ -70,20 +70,66 @@ Shortwave intermittency enabled with 30 min intermittency.
 Usage
 -----
 
-    # Plot shortwave heating rate error.
-    ./shortwave_heating_rate_error.R shortwave_heating_rate_error.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc
+    # Plot shortwave heating rate.
+    ./heating_rate.R shortwave_heating_rate.pdf \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_solar \
+        'Shortwave heating rate (K/day)' \
+        0,5
 
     # Plot shortwave heating rate time series.
-    ./shortwave_heating_rate_timeseries.R shortwave_heating_rate_timeseries.pdf results/shortwave-intermittency-1h.nc 2009-06-29
+    ./heating_rate_timeseries.R shortwave_heating_rate_timeseries.pdf \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_solar_850 \
+        'Shortwave heating rate at 850 hPa (K/day)' \
+        0,7 \
+        2009-06-29
+
+    # Plot shortwave heating rate error.
+    ./heating_rate_error.R shortwave_heating_rate_error.pdf \
+        results/shortwave-intermittency-1h.nc \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_solar_error \
+        'Shortwave heating rate error (K/day)' \
+        -0.2,0.2
 
     # Plot shortwave heating rate error time series.
-    ./shortwave_heating_rate_error_timeseries.R shortwave_heating_rate_error_timeseries.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc 2009-06-29
+    ./heating_rate_error_timeseries.R shortwave_heating_rate_error_timeseries.pdf \
+        results/shortwave-intermittency-1h.nc \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_solar_error_850 \
+        'Shortwave heating rate error at 850 hPa (K/day)' \
+        -0.6,0.6 \
+        2009-06-29
 
-    # Plot longwave heating rate error.
-    ./longwave_heating_rate_error.R longwave_heating_rate_error.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc
+    # Plot longwave heating rate.
+    ./heating_rate.R longwave_heating_rate.pdf \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_thermal \
+        'Longwave heating rate (K/day)' \
+        -5,2
 
     # Plot longwave heating rate time series.
-    ./longwave_heating_rate_timeseries.R longwave_heating_rate_timeseries.pdf results/shortwave-intermittency-1h.nc 2009-06-29
+    ./heating_rate_timeseries.R longwave_heating_rate_timeseries.pdf \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_thermal_850 \
+        'Longwave heating rate at 850 hPa (K/day)' \
+        -6,2 \
+        2009-06-29
+
+    # Plot longwave heating rate error.
+    ./heating_rate_error.R longwave_heating_rate_error.pdf \
+        results/shortwave-intermittency-1h.nc \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_thermal_error \
+        'Longwave heating rate error (K/day)' \
+        -0.7,0.7
 
     # Plot longwave heating rate error time series.
-    ./longwave_heating_rate_error_timeseries.R longwave_heating_rate_error_timeseries.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc 2009-06-29
+    ./heating_rate_error_timeseries.R longwave_heating_rate_error_timeseries.pdf \
+        results/shortwave-intermittency-1h.nc \
+        results/shortwave-intermittency-base.nc \
+        heating_rate_thermal_error_850 \
+        'Longwave heating rate error at 850 hPa (K/day)' \
+        -1.5,1.5 \
+        2009-06-29
