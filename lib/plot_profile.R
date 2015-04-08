@@ -1,12 +1,4 @@
 plot.profile <- function(p, name, bg=NULL, col=NULL, lwd=NULL, new=TRUE, ...) {
-    var.hi <- apply(p[[name]], c(1), function(x) {
-        quantile(x, 0.68)
-    })
-
-    var.lo <- apply(p[[name]], c(1), function(x) {
-        quantile(x, 1-0.68)
-    })
-
     if (new) {
         ylim <- rev(range(p$mean_pressure/100))
 
@@ -22,11 +14,11 @@ plot.profile <- function(p, name, bg=NULL, col=NULL, lwd=NULL, new=TRUE, ...) {
         axis(2, at=c(100,300,500,700,850)) 
     }
 
-    var.hi <- apply(p[[name]], c(1), function(x) {
+    var.hi <- apply(p[[name]], 1, function(x) {
         quantile(x, 0.95)
     })
 
-    var.lo <- apply(p[[name]], c(1), function(x) {
+    var.lo <- apply(p[[name]], 1, function(x) {
         quantile(x, 1-0.95)
     })
 
