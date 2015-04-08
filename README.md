@@ -78,3 +78,12 @@ Usage
 
     # Plot shortwave heating rate error time series.
     ./shortwave_heating_rate_error_timeseries.R shortwave_heating_rate_error_timeseries.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc 2009-06-29
+
+    # Plot longwave heating rate error.
+    ./longwave_heating_rate_error.R longwave_heating_rate_error.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc
+
+    # Plot longwave heating rate time series.
+    ./longwave_heating_rate_timeseries.R longwave_heating_rate_timeseries.pdf results/shortwave-intermittency-1h.nc 2009-06-29
+
+    # Plot longwave heating rate error time series.
+    ./longwave_heating_rate_error_timeseries.R longwave_heating_rate_error_timeseries.pdf results/shortwave-intermittency-1h.nc results/shortwave-intermittency-base.nc 2009-06-29
