@@ -25,7 +25,7 @@ level <- function(p) {
     p$time_utc <- p$start_time + p$time
     p$flux_solar_diff <- apply(p$flux_solar, c(2,3), diff)
     p$heating_rate_solar <- -g*p$flux_solar_diff/p$heat_capacity/p$pressure_thickness*24*60*60
-    p$heating_rate_solar_850 <- p$heating_rate[pressure.index(p, 850),,]
+    p$heating_rate_solar_850 <- p$heating_rate_solar[pressure.index(p, 850e2),,]
     p
 }
 
@@ -48,7 +48,7 @@ par(lwd=0.8)
 
 plot.time.series(p, 'heating_rate_solar_error_850',
     ylab='Shortwave heating rate error at 850 hPa (K/day)',
-    ylim=c(-0.1, 0.2),
+    ylim=c(-0.6, 0.6),
     lwd=1,
     col='#0169c9',
     bg='#b3defd'
