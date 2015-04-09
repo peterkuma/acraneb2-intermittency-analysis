@@ -1,16 +1,13 @@
 #!/usr/bin/env Rscript
 
+library(rjson)
+
 args <- commandArgs(TRUE)
-if (length(args) != 5) {
-    cat(sprintf('Usage: heating_rate.R <plot> <product> <name> <xlab> <xlim>\n'))
+if (length(args) != 1) {
+    cat(sprintf('Usage: heating_rate.R <config>\n'))
     quit(status=1)
 }
-
-plot.filename <- args[1]
-product.filename <- args[2]
-name <- args[3]
-xlab <- args[4]
-xlim <- as.numeric(strsplit(args[5], ',')[[1]])
+config <- fromJSON(file=args[1])
 
 source('lib/common.R')
 source('lib/plot_profile.R')
@@ -28,7 +25,7 @@ level <- function(p) {
     p
 }
 
-cairo_pdf(plot.filename, width=10/cm(1), height=10/cm(1))
+cairo_pdf(config$plot, width=10/cm(1), height=10/cm(1))
 par(mar=c(4,4,1,1))
 par(cex=0.8)
 par(lwd=0.8)
@@ -41,14 +38,20 @@ only <- c(
         'heat_capacity'
 )
 
-p <- level(read.nc(product.filename, only=only))
+p <- level(read.nc(config$product, only=only))
 
-plot.profile(p, name,
-    xlab=xlab,
+plot.profile.band(p, config$name,
+    xlab=config$xlab,
+    xlim=config$xlim,
     lwd=1,
-    col='#0169c9',
-    bg='#b3defd',
-    xlim=xlim
+    bg=config$bg
+
+)
+
+plot.profile(p, config$name,
+    lwd=1,
+    col=config$col,
+    new=FALSE
 )
 
 dev.off()

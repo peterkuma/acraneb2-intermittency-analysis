@@ -1,0 +1,10 @@
+{
+    "plot": "shortwave_heating_rate.pdf",
+    "name": "heating_rate_solar",
+    "xlab": "Shortwave heating rate (K/day)",
+    "xlim": [0, 5],
+    "base": "results/shortwave-intermittency-base.nc",
+    "product": "results/shortwave-intermittency-1h.nc",
+    "col": "#0169c9",
+    "bg": "#b3defd"
+}

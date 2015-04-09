@@ -1,17 +1,13 @@
 #!/usr/bin/env Rscript
 
+library(rjson)
+
 args <- commandArgs(TRUE)
-if (length(args) != 6) {
-    cat(sprintf('Usage: shortwave_heating_rate_error.R <plot> <product> <base> <name> <xlab> <xlim>\n'))
+if (length(args) != 1) {
+    cat(sprintf('Usage: shortwave_heating_rate_error.R <config>\n'))
     quit(status=1)
 }
-
-plot.filename <- args[1]
-product.filename <- args[2]
-base.filename <- args[3]
-name <- args[4]
-xlab <- args[5]
-xlim <- as.numeric(strsplit(args[6], ',')[[1]])
+config <- fromJSON(file=args[1])
 
 source('lib/common.R')
 source('lib/plot_profile.R')
@@ -26,7 +22,7 @@ level <- function(p) {
     p
 }
 
-cairo_pdf(plot.filename, width=10/cm(1), height=10/cm(1))
+cairo_pdf(config$plot, width=10/cm(1), height=10/cm(1))
 par(mar=c(4,4,1,1))
 par(cex=0.8)
 par(lwd=0.8)
@@ -39,19 +35,36 @@ only <- c(
         'heat_capacity'
 )
 
-p.base <- level(read.nc(base.filename, only=only))
-p <- level(read.nc(product.filename, only=only))
+p.base <- level(read.nc(config$base, only=only))
+products <- lapply(config$products, function(filename) {
+    p <- level(read.nc(filename, only=only))
+    p$heating_rate_solar_error <- p$heating_rate_solar - p.base$heating_rate_solar
+    p$heating_rate_thermal_error <- p$heating_rate_thermal - p.base$heating_rate_thermal
+    p
+})
 
-p$heating_rate_solar_error <- p$heating_rate_solar - p.base$heating_rate_solar
-p$heating_rate_thermal_error <- p$heating_rate_thermal - p.base$heating_rate_thermal
+i <- 1
+for (p in products) {
+    plot.profile.band(p, config$name,
+        xlab=config$xlab,
+        lwd=1,
+        xlim=config$xlim,
+        bg=config$bg[i],
+        new=(i == 1)
+    )
+    i <- i + 1
+}
 
-plot.profile(p, name,
-    xlab=xlab,
-    lwd=1,
-    col='#0169c9',
-    xlim=xlim,
-    bg='#b3defd'
-)
+i <- 1
+for (p in products) {
+    plot.profile(p, config$name,
+        lwd=1,
+        lty=config$lty[i],
+        col=config$col[i],
+        new=FALSE
+    )
+    i <- i + 1
+}
 
 # p$heating_rate_solar_rmse <- sqrt(apply(
 #     (p$heating_rate_solar - p.base$heating_rate_solar)**2,

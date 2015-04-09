@@ -1,0 +1,10 @@
+{
+    "plot": "longwave_heating_rate.pdf",
+    "name": "heating_rate_thermal",
+    "xlab": "Longwave heating rate (K/day)",
+    "xlim": [-10, 2],
+    "base": "results/shortwave-intermittency-base.nc",
+    "product": "results/shortwave-intermittency-1h.nc",
+    "col": "#0169c9",
+    "bg": "#b3defd"
+}

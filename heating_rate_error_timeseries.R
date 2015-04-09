@@ -1,18 +1,26 @@
 #!/usr/bin/env Rscript
 
+library(rjson)
+
 args <- commandArgs(TRUE)
-if (length(args) != 7) {
-    cat(sprintf('Usage: heating_rate_error_timeseries.R <plot> <product> <base> <name> <ylab> <ylim> <start-time>\n'))
+# if (length(args) < 7) {
+#     cat(sprintf('Usage: heating_rate_error_timeseries.R <plot> <name> <ylab> <ylim> <start-time> <base> <product> [<product>]...\n'))
+#     quit(status=1)
+# }
+# plot.filename <- args[1]
+# name <- args[2]
+# ylab <- args[3]
+# ylim <- as.numeric(strsplit(args[4], ',')[[1]])
+# start.time <- as.POSIXct(args[5], tz='UTC')
+# base.filename <- args[6]
+# product.filenames <- args[7:length(args)]
+
+if (length(args) != 1) {
+    cat(sprintf('Usage: heating_rate_error_timeseries.R <plot> <name> <ylab> <ylim> <start-time> <base> <product> [<product>]...\n'))
     quit(status=1)
 }
-
-plot.filename <- args[1]
-product.filename <- args[2]
-base.filename <- args[3]
-name <- args[4]
-ylab <- args[5]
-ylim <- as.numeric(strsplit(args[6], ',')[[1]])
-start.time <- as.POSIXct(args[7], tz='UTC')
+config <- fromJSON(file=args[1])
+config$start_time <- as.POSIXct(config$start_time, tz='UTC')
 
 source('lib/common.R')
 source('lib/plot_time_series.R')
@@ -24,7 +32,7 @@ pressure.index <- function(p, pressure) {
 level <- function(p) {
     p$pressure <- apply(p$pressure_thickness, c(2,3), cumsum) - p$pressure_thickness/2
     p$mean_pressure <- apply(p$pressure, 1, mean)
-    p$start_time <- start.time
+    p$start_time <- config$start_time
     p$time_utc <- p$start_time + p$time
 
     p$flux_solar_diff <- apply(p$flux_solar, c(2,3), diff)
@@ -46,23 +54,44 @@ only <- c(
     'heat_capacity'
 )
 
-p <- level(read.nc(product.filename, only=only))
-p.base <- level(read.nc(base.filename, only=only))
+p.base <- level(read.nc(config$base, only=only))
 
-p$heating_rate_solar_error_850 <- p$heating_rate_solar_850 - p.base$heating_rate_solar_850
-p$heating_rate_thermal_error_850 <- p$heating_rate_thermal_850 - p.base$heating_rate_thermal_850
+products <- lapply(config$products, function(filename) {
+    p <- level(read.nc(filename, only=only))
+    p$heating_rate_solar_error_850 <- p$heating_rate_solar_850 - p.base$heating_rate_solar_850
+    p$heating_rate_thermal_error_850 <- p$heating_rate_thermal_850 - p.base$heating_rate_thermal_850
+    p
+})
 
-cairo_pdf(plot.filename, width=15/cm(1), height=10/cm(1))
+cairo_pdf(config$plot, width=15/cm(1), height=10/cm(1))
 par(mar=c(4,4,1,1))
 par(cex=0.8)
 par(lwd=0.8)
 
-plot.time.series(p, name,
-    ylab=ylab,
-    ylim=ylim,
-    lwd=1,
-    col='#0169c9',
-    bg='#b3defd'
-)
+i <- 1
+for (p in products) {
+    plot.time.series.band(p, config$name,
+        ylab=config$ylab,
+        ylim=config$ylim,
+        lwd=1,
+        col=config$col[i],
+        bg=config$bg[i],
+        new=(i == 1)
+    )
+    i <- i + 1
+}
+
+i <- 1
+for (p in products) {
+    plot.time.series(p, config$name,
+        ylab=config$ylab,
+        ylim=config$ylim,
+        lwd=1,
+        col=config$col[i],
+        lty=config$lty[i],
+        new=FALSE
+    )
+    i <- i + 1
+}
 
 dev.off()

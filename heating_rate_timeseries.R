@@ -1,17 +1,14 @@
 #!/usr/bin/env Rscript
 
+library(rjson)
+
 args <- commandArgs(TRUE)
-if (length(args) != 6) {
-    cat(sprintf('Usage: heating_rate_timeseries.R <plot> <product> <name> <ylab> <ylim> <start-time>\n'))
+if (length(args) != 1) {
+    cat(sprintf('Usage: heating_rate_timeseries.R <config>\n'))
     quit(status=1)
 }
-
-plot.filename <- args[1]
-product.filename <- args[2]
-name <- args[3]
-ylab <- args[4]
-ylim <- as.numeric(strsplit(args[5], ',')[[1]])
-start.time <- as.POSIXct(args[6], tz='UTC')
+config <- fromJSON(file=args[1])
+config$start_time <- as.POSIXct(config$start_time, tz='UTC')
 
 source('lib/common.R')
 source('lib/plot_time_series.R')
@@ -23,7 +20,7 @@ pressure.index <- function(p, pressure) {
 level <- function(p) {
     p$pressure <- apply(p$pressure_thickness, c(2,3), cumsum) - p$pressure_thickness/2
     p$mean_pressure <- apply(p$pressure, 1, mean)
-    p$start_time <- start.time
+    p$start_time <- config$start_time
     p$time_utc <- p$start_time + p$time
 
     p$flux_solar_diff <- apply(p$flux_solar, c(2,3), diff)
@@ -37,7 +34,7 @@ level <- function(p) {
     p
 }
 
-p <- level(read.nc(product.filename, only=c(
+p <- level(read.nc(config$product, only=c(
     'time',
     'pressure_thickness',
     'flux_solar',
@@ -45,17 +42,21 @@ p <- level(read.nc(product.filename, only=c(
     'heat_capacity'
 )))
 
-cairo_pdf(plot.filename, width=15/cm(1), height=10/cm(1))
+cairo_pdf(config$plot, width=15/cm(1), height=10/cm(1))
 par(mar=c(4,4,1,1))
 par(cex=0.8)
 par(lwd=0.8)
 
-plot.time.series(p, name,
-    ylab=ylab,
-    ylim=ylim,
+plot.time.series.band(p, config$name,
+    ylab=config$ylab,
+    ylim=config$ylim,
+    bg=config$bg
+)
+
+plot.time.series(p, config$name,
     lwd=1,
-    col='#0169c9',
-    bg='#b3defd'
+    col=config$col,
+    new=FALSE
 )
 
 dev.off()
