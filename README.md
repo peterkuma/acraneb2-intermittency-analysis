@@ -67,6 +67,13 @@ Shortwave intermittency enabled with 30 min intermittency.
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 30 min.
 
+Performance
+-----------
+
+Performance information from model runs is stored in
+`performance/<name>.log.<i>`, where `<i>` is the number of a (repeated) run.
+These runs were made with an unmodified model binary, i.e. without data dumping.
+
 Usage
 -----
 
