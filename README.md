@@ -106,3 +106,6 @@ Usage
 
     # Plot longwave heating rate error time series.
     ./heating_rate_error_timeseries.R longwave_heating_rate_error_timeseries.json
+
+    # Plot performance statistics.
+    ./performance_plot.R performance_plot.json

@@ -1,0 +1,20 @@
+{
+    "plot": "performance_plot.pdf",
+    "labels": [
+        "Base",
+        "30 min int.",
+        "1 h int."
+    ],
+    "mean": [
+        1,
+        0.94,
+        0.92
+    ],
+    "hdi": [
+        [1, 1],
+        [0.73, 1.13],
+        [0.77, 1.09]
+    ],
+    "col": "#0197fd",
+    "text.col": "white"
+}
