@@ -1,5 +1,6 @@
 plot.time.series <- function(p, name, new=TRUE, ...) {
-    var.mean <- apply(p[[name]], 2, mean)
+    time.dim <- length(dim(p[[name]]))
+    var.mean <- apply(p[[name]], time.dim, mean)
 
     if (new) {
         xlim <- range(p$time_utc)
@@ -25,11 +26,12 @@ plot.time.series <- function(p, name, new=TRUE, ...) {
 }
 
 plot.time.series.band <- function(p, name, new=TRUE, bg=NULL, ...) {
-    var.hi <- apply(p[[name]], 2, function(x) {
+    time.dim <- length(dim(p[[name]]))
+    var.hi <- apply(p[[name]], time.dim, function(x) {
         quantile(x, 0.95)
     })
 
-    var.lo <- apply(p[[name]], 2, function(x) {
+    var.lo <- apply(p[[name]], time.dim, function(x) {
         quantile(x, 1-0.95)
     })
 

@@ -1,5 +1,5 @@
 {
-    "plot": "shortwave_heating_rate_timeseries.pdf",
+    "plot": "shortwave_heating_rate_timeseries_850.pdf",
     "name": "heating_rate_solar_850",
     "ylab": "Shortwave heating rate at 850 hPa (K/day)",
     "ylim": [0, 7],

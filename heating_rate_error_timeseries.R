@@ -58,7 +58,9 @@ p.base <- level(read.nc(config$base, only=only))
 
 products <- lapply(config$products, function(filename) {
     p <- level(read.nc(filename, only=only))
+    p$heating_rate_solar_error <- p$heating_rate_solar - p.base$heating_rate_solar
     p$heating_rate_solar_error_850 <- p$heating_rate_solar_850 - p.base$heating_rate_solar_850
+    p$heating_rate_thermal_error <- p$heating_rate_thermal - p.base$heating_rate_thermal
     p$heating_rate_thermal_error_850 <- p$heating_rate_thermal_850 - p.base$heating_rate_thermal_850
     p
 })
