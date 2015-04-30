@@ -3,20 +3,8 @@
 library(rjson)
 
 args <- commandArgs(TRUE)
-# if (length(args) < 7) {
-#     cat(sprintf('Usage: heating_rate_error_timeseries.R <plot> <name> <ylab> <ylim> <start-time> <base> <product> [<product>]...\n'))
-#     quit(status=1)
-# }
-# plot.filename <- args[1]
-# name <- args[2]
-# ylab <- args[3]
-# ylim <- as.numeric(strsplit(args[4], ',')[[1]])
-# start.time <- as.POSIXct(args[5], tz='UTC')
-# base.filename <- args[6]
-# product.filenames <- args[7:length(args)]
-
 if (length(args) != 1) {
-    cat(sprintf('Usage: heating_rate_error_timeseries.R <plot> <name> <ylab> <ylim> <start-time> <base> <product> [<product>]...\n'))
+    cat(sprintf('Usage: heating_rate_error_timeseries.R <config>\n'))
     quit(status=1)
 }
 config <- fromJSON(file=args[1])
