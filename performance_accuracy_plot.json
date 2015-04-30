@@ -1,0 +1,24 @@
+{
+    "plot": "performance_accuracy_plot.pdf",
+    "name": "heating_rate_solar_mean_wmean_abs_error",
+    "high": "heating_rate_solar_wmean_abs_error_high",
+    "low": "heating_rate_solar_wmean_abs_error_low",
+    "ylab": "Shortwave heating rate error (K/day)",
+    "performance": [
+        0.982,
+        0.937
+    ],
+    "base": "results/shortwave-intermittency-base.nc",
+    "products": [
+        "results/shortwave-intermittency-30min.nc",
+        "results/shortwave-intermittency-1h.nc"
+    ],
+    "labels": [
+        "Base",
+        "30 min int.",
+        "1 h int."
+    ],
+    "col": "#0169c9",
+    "lty": [1, 2],
+    "bg": "#b3defd"
+}
