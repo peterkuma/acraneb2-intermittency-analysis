@@ -4,7 +4,7 @@ library(rjson)
 
 args <- commandArgs(TRUE)
 if (length(args) != 1) {
-    cat(sprintf('Usage: %s <config>\n'))
+    cat(sprintf('Usage: performance_plot.R <config>\n'))
     quit(status=1)
 }
 config <- fromJSON(file=args[1])
@@ -36,7 +36,7 @@ for (hdi in config$hdi) {
 
 i <- 1
 for (mean in config$mean) {
-    text(x[i,1], mean*100, sprintf('%d %%', mean*100),
+    text(x[i,1], mean*100, sprintf('%.1f %%', mean*100),
         pos=1,
         offset=0.8,
         col=config$text.col,
