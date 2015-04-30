@@ -1,8 +1,8 @@
 {
-    "plot": "shortwave_heating_rate_error_timeseries_850.pdf",
-    "name": "heating_rate_solar_error_850",
-    "ylab": "Shortwave heating rate error at 850 hPa (K/day)",
-    "ylim": [-0.7, 0.7],
+    "plot": "longwave_heating_rate_error_timeseries.pdf",
+    "name": "heating_rate_thermal_error",
+    "ylab": "Longwave heating rate error (K/day)",
+    "ylim": [-1, 1],
     "start_time": "2009-06-29",
     "base": "results/shortwave-intermittency-base.nc",
     "products": [

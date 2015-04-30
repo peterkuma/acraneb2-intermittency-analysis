@@ -2,14 +2,17 @@
     "plot": "shortwave_heating_rate_error.pdf",
     "name": "heating_rate_solar_error",
     "xlab": "Shortwave heating rate error (K/day)",
-    "xlim": [-0.2, 0.2],
+    "xlim": [-0.25, 0.25],
     "start_time": "2009-06-29",
     "base": "results/shortwave-intermittency-base.nc",
     "products": [
+        "results/shortwave-intermittency-2h.nc",
         "results/shortwave-intermittency-1h.nc",
-        "results/shortwave-intermittency-30min.nc"
+        "results/shortwave-intermittency-30min.nc",
+        "results/shortwave-intermittency-15min.nc",
+        "results/shortwave-intermittency-6min.nc"
     ],
-    "col": ["#0169c9", "#0169c9"],
-    "lty": [1, 2],
-    "bg": ["#b3defd", "#57bbfe"]
+    "col": ["#0169c9", "#0169c9", "#0169c9", "#0169c9", "#0169c9"],
+    "lty": [1, 1, 1, 1, 1],
+    "bg": ["#d4edffff", "#a8d8fdff", "#78c9ffff", "#47b3feff", "#0197fdff"]
 }
