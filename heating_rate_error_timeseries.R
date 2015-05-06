@@ -43,10 +43,14 @@ only <- c(
     'heat_capacity'
 )
 
-p.base <- level(read.nc(config$base, only=only))
+products.base <- lapply(config$base, function(filename) {
+    level(read.nc(filename, only=only))
+})
 
-products <- lapply(config$products, function(filename) {
+products <- lapply(1:length(config$products), function(i) {
+    filename <- config$products[i]
     p <- level(read.nc(filename, only=only))
+    p.base <- products.base[[(i - 1) %% length(products.base) + 1]]
     p$heating_rate_solar_error <- p$heating_rate_solar - p.base$heating_rate_solar
     p$heating_rate_solar_error_850 <- p$heating_rate_solar_850 - p.base$heating_rate_solar_850
     p$heating_rate_thermal_error <- p$heating_rate_thermal - p.base$heating_rate_thermal
