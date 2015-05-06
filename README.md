@@ -37,20 +37,35 @@ Base configuration for shortwave intermittency evaluation.
 * Longwave gaseous transmissivities computed once per 1 h.
 * Calibration of longwave NER weights computed once per 3 h.
 
-### Shortwave Intermittency 1 h
+### Shortwave Intermittency 6 min
 
-Namelist: `shortwave-intermittency-1h.nml`
+Namelist: `shortwave-intermittency-6min.nml`
 
 Configuration:
 
-    NSORAYFR=-1
+    NSORAYFR=2
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Shortwave intermittency enabled with 1 h intermittency.
+Shortwave intermittency enabled with 6 min intermittency.
 
 * Based on *Shortwave Intermittency Base*.
-* Shortwave gaseous transmissivities computed once per 1 h.
+* Shortwave gaseous transmissivities computed once per 6 min.
+
+### Shortwave Intermittency 15 min
+
+Namelist: `shortwave-intermittency-15min.nml`
+
+Configuration:
+
+    NSORAYFR=5
+    NTHRAYFR=-1
+    NRAUTOEV=3
+
+Shortwave intermittency enabled with 15 min intermittency.
+
+* Based on *Shortwave Intermittency Base*.
+* Shortwave gaseous transmissivities computed once per 15 min.
 
 ### Shortwave Intermittency 30 min
 
@@ -66,6 +81,52 @@ Shortwave intermittency enabled with 30 min intermittency.
 
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 30 min.
+
+### Shortwave Intermittency 1 h
+
+Namelist: `shortwave-intermittency-1h.nml`
+
+Configuration:
+
+    NSORAYFR=-1
+    NTHRAYFR=-1
+    NRAUTOEV=3
+
+Shortwave intermittency enabled with 1 h intermittency.
+
+* Based on *Shortwave Intermittency Base*.
+* Shortwave gaseous transmissivities computed once per 1 h.
+
+### Shortwave Intermittency 1.5 h
+
+Namelist: `shortwave-intermittency-90min.nml`
+
+Configuration:
+
+    NSORAYFR=30
+    NTHRAYFR=-1
+    NRAUTOEV=3
+
+Shortwave intermittency enabled with 1.5 h intermittency.
+
+* Based on *Shortwave Intermittency Base*.
+* Shortwave gaseous transmissivities computed once per 1.5 h.
+
+
+### Shortwave Intermittency 2 h
+
+Namelist: `shortwave-intermittency-2h.nml`
+
+Configuration:
+
+    NSORAYFR=-2
+    NTHRAYFR=-1
+    NRAUTOEV=3
+
+Shortwave intermittency enabled with 2 h intermittency.
+
+* Based on *Shortwave Intermittency Base*.
+* Shortwave gaseous transmissivities computed once per 2 h.
 
 Performance
 -----------
