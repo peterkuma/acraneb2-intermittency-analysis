@@ -1,0 +1,18 @@
+{
+    "plot": "longwave_heating_rate_error_timeseries.pdf",
+    "name": "heating_rate_thermal_error",
+    "ylab": "Longwave heating rate error (K/day)",
+    "ylim": [-3, 3],
+    "start_time": "2009-06-29",
+    "base": [
+        "../results/intermittency-fmr-base.nc",
+        "../results/intermittency-base.nc"
+    ],
+    "products": [
+        "../results/intermittency-fmr-1h.nc",
+        "../results/intermittency-1h.nc"
+    ],
+    "col": ["#0169c9", "#0169c9", "#0169c9", "#0169c9", "#0169c9"],
+    "lty": [1, 1, 1, 1, 1],
+    "bg": ["#d4edffff", "#a8d8fdff", "#78c9ffff", "#47b3feff", "#0197fdff"]
+}
