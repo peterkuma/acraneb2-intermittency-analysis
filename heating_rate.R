@@ -9,8 +9,9 @@ if (length(args) != 1) {
 }
 config <- fromJSON(file=args[1])
 
-source('lib/common.R')
-source('lib/plot_profile.R')
+script.dir <- dirname(substring(commandArgs()[grep("--file=",commandArgs())],8))
+source(sprintf('%s/lib/common.R', script.dir))
+source(sprintf('%s/lib/plot_profile.R', script.dir))
 
 level <- function(p) {
     p$pressure <- apply(p$pressure_thickness, c(2,3), cumsum) - p$pressure_thickness/2

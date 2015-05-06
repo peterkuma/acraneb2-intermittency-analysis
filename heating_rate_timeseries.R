@@ -10,8 +10,9 @@ if (length(args) != 1) {
 config <- fromJSON(file=args[1])
 config$start_time <- as.POSIXct(config$start_time, tz='UTC')
 
-source('lib/common.R')
-source('lib/plot_time_series.R')
+script.dir <- dirname(substring(commandArgs()[grep("--file=",commandArgs())],8))
+source(sprintf('%s/lib/common.R', script.dir))
+source(sprintf('%s/lib/plot_time_series.R', script.dir))
 
 pressure.index <- function(p, pressure) {
     which.min(abs(p$mean_pressure - pressure))
