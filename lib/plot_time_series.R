@@ -27,12 +27,33 @@ plot.time.series <- function(p, name, new=TRUE, ...) {
 
 plot.time.series.band <- function(p, name, new=TRUE, bg=NULL, ...) {
     time.dim <- length(dim(p[[name]]))
-    var.hi <- apply(p[[name]], time.dim, function(x) {
-        quantile(x, 0.95)
-    })
 
+    t <- 1
+    var.hi <- apply(p[[name]], time.dim, function(x) {
+        if (is.null(dim(x))) {
+            y <- x
+        } else {
+            y <- sample(c(x), length(c(x))*10,
+                prob=c(p$pressure_thickness[,,t]),
+                replace=TRUE
+            )
+        }
+        t <- t + 1
+        quantile(y, (1 + 0.90)/2)
+    })
+ 
+    t <- 1
     var.lo <- apply(p[[name]], time.dim, function(x) {
-        quantile(x, 1-0.95)
+        if (is.null(dim(x))) {
+            y <- x
+        } else {
+            y <- sample(c(x), length(c(x))*10,
+                prob=c(p$pressure_thickness[,,t]),
+                replace=TRUE
+            )
+        }
+        t <- t + 1
+        quantile(y, (1 - 0.90)/2)
     })
 
     if (new) {
