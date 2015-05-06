@@ -128,6 +128,72 @@ Shortwave intermittency enabled with 2 h intermittency.
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 2 h.
 
+### Intermittency Base
+
+Namelist: `intermittency-base.nml`
+
+Configuration:
+
+    NSORAYFR=1
+    NTHRAYFR=1
+    NRAUTOEV=1
+
+Base configuration with longwave and shortwave intermittency disabled.
+
+### Intermittency 1h
+
+Namelist: `intermittency-1h.nml`
+
+Configuration:
+
+    NSORAYFR=-1
+    NTHRAYFR=-1
+    NRAUTOEV=3
+
+Longwave and shortwave intermittency enabled with 1 h intermittency.
+
+* Based on *Intermittency Base*.
+* Longwave and shortwave gaseous transmissivities computed once per 1 h.
+* Longwave ‘bracketing’ weights computed once per 3 h.
+
+### Intermittency FMR Base
+
+Namelist: `intermittency-fmr-base.nml`
+
+Configuration:
+
+    LRAY=.F.
+    LRAYFM=.T.
+    &NAERAD
+      LHGHG=.F.
+      LRRTM=.T.
+      LSRTM=.F.
+      NICEOPT=3
+      NLIQOPT=2
+      NOVLP=6
+      NRADFR=1
+      NSW=6
+      RLWINHF=1.
+      RSWINHF=1.
+      RCCO2=389.0E-06
+      RCN2O=0.323E-06
+      RCCH4=1.808E-06
+      RCCFC11=0.
+      RCCFC12=0.
+
+Base configuration of FMR radiation scheme with intermittency disabled.
+
+### Intermittency FMR 1 h
+
+Namelist: `intermittency-fmr-1h.nml`
+
+Configuration:
+
+    NRADFR=-1
+
+* Based on *Intermittency FMR Base*.
+* Fluxes computed once per 1 h.
+
 Performance
 -----------
 
