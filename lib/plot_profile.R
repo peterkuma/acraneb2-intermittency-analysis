@@ -26,11 +26,11 @@ plot.profile <- function(p, name, col=NULL, lwd=NULL, new=TRUE, ...) {
 
 plot.profile.band <- function(p, name, bg=NULL, new=TRUE, ...) {
     var.hi <- apply(p[[name]], 1, function(x) {
-        quantile(x, 0.95)
+        quantile(x, (1 + 0.90)/2)
     })
 
     var.lo <- apply(p[[name]], 1, function(x) {
-        quantile(x, 1-0.95)
+        quantile(x, (1 - 0.90)/2)
     })
 
     if (new) {
