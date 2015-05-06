@@ -40,16 +40,21 @@ products <- lapply(config$products, function(filename) {
         weighted.mean(x, p$mean_pressure_thickness)
     })
     p$heating_rate_solar_mean_wmean_abs_error <- mean(p$heating_rate_solar_wmean_abs_error)
-    p$heating_rate_solar_wmean_abs_error_high <- quantile(p$heating_rate_solar_wmean_abs_error, 0.95)
-    p$heating_rate_solar_wmean_abs_error_low <- quantile(p$heating_rate_solar_wmean_abs_error, 0.05)
+    p$heating_rate_solar_abs_error_high <- quantile(
+        sample(p$heating_rate_solar_abs_error, 1000000,
+            prob=p$pressure_thickness,
+            replace=TRUE
+        ),
+        0.95
+    )
     p
 })
 
 value <- sapply(products, function(p) { p[[config$name]] })
 high <- sapply(products, function(p) { p[[config$high]] })
-low <- sapply(products, function(p) { p[[config$low]] })
+low <- rep(0, length(value))
 
-cairo_pdf(config$plot, width=10/cm(1), height=10/cm(1))
+cairo_pdf(config$plot, width=14/cm(1), height=9/cm(1))
 par(mar=c(4,4,1,1))
 par(cex=0.8)
 par(lwd=0.8)
@@ -72,17 +77,32 @@ polygon(
    border=NA
 )
 
+lines(x, c(0, high),
+    lwd=1,
+    type='o',
+    pch=20,
+    lty=2,
+    col=config$col
+)
+
 lines(x, y,
     col=config$col,
-    lwd=config$lwd,
+    lwd=1,
     type='o',
     pch=20
+)
+
+arrows(x, 0, x, c(0, high),
+    length=0,
+    lwd=0.5,
+    lty=3
 )
 
 text(x, y, config$labels,
     pos=3,
     offset=0.5,
-    xpd=NA
+    xpd=NA,
+    cex=0.8
 )
 
 dev.off()
