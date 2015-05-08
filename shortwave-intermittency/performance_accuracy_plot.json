@@ -4,21 +4,21 @@
     "high": "heating_rate_solar_abs_error_high",
     "ylab": "Shortwave heating rate error (K/day)",
     "performance": [
-        0.9608,
-        0.9413,
-        0.9338,
-        0.9304,
-        0.9289,
-        0.9284
+        1.0037,
+        0.9678,
+        0.9576,
+        0.9520,
+        0.9501,
+        0.9473
     ],
-    "base": "results/shortwave-intermittency-base.nc",
+    "base": "../results/shortwave-intermittency-base.nc",
     "products": [
-        "results/shortwave-intermittency-6min.nc",
-        "results/shortwave-intermittency-15min.nc",
-        "results/shortwave-intermittency-30min.nc",
-        "results/shortwave-intermittency-1h.nc",
-        "results/shortwave-intermittency-90min.nc",
-        "results/shortwave-intermittency-2h.nc"
+        "../results/shortwave-intermittency-6min.nc",
+        "../results/shortwave-intermittency-15min.nc",
+        "../results/shortwave-intermittency-30min.nc",
+        "../results/shortwave-intermittency-1h.nc",
+        "../results/shortwave-intermittency-90min.nc",
+        "../results/shortwave-intermittency-2h.nc"
     ],
     "labels": [
         "Base",
