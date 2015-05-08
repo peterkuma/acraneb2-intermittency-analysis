@@ -9,7 +9,8 @@ if (length(args) != 1) {
 }
 config <- fromJSON(file=args[1])
 
-source('lib/common.R')
+script.dir <- dirname(substring(commandArgs()[grep("--file=",commandArgs())],8))
+source(sprintf('%s/lib/common.R', script.dir))
 
 level <- function(p) {
     p$pressure <- apply(p$pressure_thickness, c(2,3), cumsum) - p$pressure_thickness/2
@@ -62,6 +63,8 @@ par(lwd=0.8)
 x <- c(1, config$performance)*100
 y <- c(0, value)
 
+ord <- order(x, decreasing=TRUE)
+
 plot(NULL,
     type='n',
     xlab='Run time (%)',
@@ -71,13 +74,13 @@ plot(NULL,
 )
 
 polygon(
-   c(x, rev(x)),
-   c(0, low, rev(high), 0),
+   c(x[ord], rev(x[ord])),
+   c(c(0, low)[ord], rev(c(0, high)[ord])),
    col=config$bg,
    border=NA
 )
 
-lines(x, c(0, high),
+lines(x[ord], c(0, high)[ord],
     lwd=1,
     type='o',
     pch=20,
@@ -85,7 +88,7 @@ lines(x, c(0, high),
     col=config$col
 )
 
-lines(x, y,
+lines(x[ord], y[ord],
     col=config$col,
     lwd=1,
     type='o',
