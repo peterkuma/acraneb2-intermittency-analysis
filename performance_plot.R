@@ -9,7 +9,7 @@ if (length(args) != 1) {
 }
 config <- fromJSON(file=args[1])
 
-cairo_pdf(config$plot, width=7/cm(1), height=7/cm(1))
+cairo_pdf(config$plot, width=14/cm(1), height=6/cm(1))
 par(mar=c(2,4,1,1))
 par(cex=0.8)
 par(lwd=0.8)
