@@ -47,7 +47,7 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Shortwave intermittency enabled with 6 min intermittency.
+Shortwave intermittency enabled with 6-min period.
 
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 6 min.
@@ -62,7 +62,7 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Shortwave intermittency enabled with 15 min intermittency.
+Shortwave intermittency enabled with 15-min period.
 
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 15 min.
@@ -77,7 +77,7 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Shortwave intermittency enabled with 30 min intermittency.
+Shortwave intermittency enabled with 30-min period.
 
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 30 min.
@@ -92,12 +92,12 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Shortwave intermittency enabled with 1 h intermittency.
+Shortwave intermittency enabled with 1-h period.
 
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 1 h.
 
-### Shortwave Intermittency 1.5 h
+### Shortwave Intermittency 90 min
 
 Namelist: `shortwave-intermittency-90min.nml`
 
@@ -107,10 +107,10 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Shortwave intermittency enabled with 1.5 h intermittency.
+Shortwave intermittency enabled with 90-min period.
 
 * Based on *Shortwave Intermittency Base*.
-* Shortwave gaseous transmissivities computed once per 1.5 h.
+* Shortwave gaseous transmissivities computed once per 90 min.
 
 
 ### Shortwave Intermittency 2 h
@@ -123,7 +123,7 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Shortwave intermittency enabled with 2 h intermittency.
+Shortwave intermittency enabled with 2-h period.
 
 * Based on *Shortwave Intermittency Base*.
 * Shortwave gaseous transmissivities computed once per 2 h.
@@ -138,9 +138,10 @@ Configuration:
     NTHRAYFR=1
     NRAUTOEV=1
 
-Base configuration with longwave and shortwave intermittency disabled.
+Base configuration of ACRANEB2 with longwave and shortwave intermittency
+disabled.
 
-### Intermittency 1h
+### Intermittency 1 h
 
 Namelist: `intermittency-1h.nml`
 
@@ -150,7 +151,7 @@ Configuration:
     NTHRAYFR=-1
     NRAUTOEV=3
 
-Longwave and shortwave intermittency enabled with 1 h intermittency.
+ACRANEB2 with longwave and shortwave intermittency enabled with 1-h period.
 
 * Based on *Intermittency Base*.
 * Longwave and shortwave gaseous transmissivities computed once per 1 h.
@@ -181,7 +182,7 @@ Configuration:
       RCCFC11=0.
       RCCFC12=0.
 
-Base configuration of FMR radiation scheme with intermittency disabled.
+Base configuration of FMR with intermittency disabled.
 
 ### Intermittency FMR 1 h
 
@@ -190,6 +191,8 @@ Namelist: `intermittency-fmr-1h.nml`
 Configuration:
 
     NRADFR=-1
+
+FMR with full intermittency enabled with 1-h period.
 
 * Based on *Intermittency FMR Base*.
 * Fluxes computed once per 1 h.
