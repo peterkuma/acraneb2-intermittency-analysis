@@ -36,7 +36,7 @@ for (hdi in config$hdi) {
 
 i <- 1
 for (mean in config$mean) {
-    text(x[i,1], mean*100, sprintf('%.0f %%', mean*100),
+    text(x[i,1], mean*100, sprintf('%.1f %%', mean*100),
         pos=1,
         offset=0.8,
         col=config$text.col,

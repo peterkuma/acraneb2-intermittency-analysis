@@ -2,13 +2,21 @@
     "plot": "performance_plot.pdf",
     "labels": [
         "Base",
-        "30 min int.",
-        "1 h int."
+        "6-min",
+        "15-min",
+        "30-min",
+        "1-h",
+        "90-min",
+        "2-h"
     ],
     "mean": [
-        1,
-        0.98,
-        0.94
+        1.0000,
+        1.0037,
+        0.9678,
+        0.9576,
+        0.9520,
+        0.9501,
+        0.9473
     ],
     "col": "#0197fd",
     "text.col": "white"
