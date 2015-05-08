@@ -12,7 +12,7 @@
         "../results/intermittency-fmr-1h.nc",
         "../results/intermittency-1h.nc"
     ],
-    "col": ["#0169c9", "#0169c9", "#0169c9", "#0169c9", "#0169c9"],
-    "lty": [1, 1, 1, 1, 1],
-    "bg": ["#d4edffff", "#a8d8fdff", "#78c9ffff", "#47b3feff", "#0197fdff"]
+    "col": ["#0169c9", "#0169c9"],
+    "lty": [2, 1],
+    "bg": ["#78c9ffff", "#0197fdff"]
 }
