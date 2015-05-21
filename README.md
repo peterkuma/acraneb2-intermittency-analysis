@@ -22,10 +22,7 @@ repository:
 * [shortwave-intermittency-2h.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZaHJhZXd1STJnVXc/view?usp=sharing)
 
 In order to use the results with the supplied scripts, download the
-compressed NetCDF files above to the directory `results` and unpack:
-
-    cd results
-    tar xjvf *.tar.bz2
+compressed NetCDF files above to the directory `results` and unpack.
 
 Experiments
 -----------
