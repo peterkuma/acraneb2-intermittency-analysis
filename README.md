@@ -13,16 +13,19 @@ Results
 Datasets with results need to be downloaded separately from an external
 repository:
 
-* [shortwave-intermittency-base.nc.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZWFZGdG5TWDE5UVU/view?usp=sharing)
-* [shortwave-intermittency-6min.nc.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZZ2phb25yT3BkZG8/view?usp=sharing)
-* [shortwave-intermittency-15min.nc.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZQmJmMjB2RGdEVWM/view?usp=sharing)
-* [shortwave-intermittency-30min.nc.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZSFR6NGhDZ081MTQ/view?usp=sharing)
-* [shortwave-intermittency-1h.nc.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZeHpacjdsbnV6TDQ/view?usp=sharing)
-* [shortwave-intermittency-90min.nc.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZTHhMMnJ3XzFGTFE/view?usp=sharing)
-* [shortwave-intermittency-2h.nc.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZaHJhZXd1STJnVXc/view?usp=sharing)
+* [shortwave-intermittency-base.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZWFZGdG5TWDE5UVU/view?usp=sharing)
+* [shortwave-intermittency-6min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZZ2phb25yT3BkZG8/view?usp=sharing)
+* [shortwave-intermittency-15min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZQmJmMjB2RGdEVWM/view?usp=sharing)
+* [shortwave-intermittency-30min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZSFR6NGhDZ081MTQ/view?usp=sharing)
+* [shortwave-intermittency-1h.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZeHpacjdsbnV6TDQ/view?usp=sharing)
+* [shortwave-intermittency-90min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZTHhMMnJ3XzFGTFE/view?usp=sharing)
+* [shortwave-intermittency-2h.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZaHJhZXd1STJnVXc/view?usp=sharing)
 
 In order to use the results with the supplied scripts, download the
-compressed NetCDF files above to the directory `results` and unpack.
+compressed NetCDF files above to the directory `results` and unpack:
+
+    cd results
+    tar xjvf *.tar.bz2
 
 Experiments
 -----------
