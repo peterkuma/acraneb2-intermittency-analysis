@@ -13,13 +13,13 @@ Results
 Datasets with results need to be downloaded separately from an external
 repository:
 
-* [shortwave-intermittency-base.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZWFZGdG5TWDE5UVU/view?usp=sharing)
-* [shortwave-intermittency-6min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZZ2phb25yT3BkZG8/view?usp=sharing)
-* [shortwave-intermittency-15min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZQmJmMjB2RGdEVWM/view?usp=sharing)
-* [shortwave-intermittency-30min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZSFR6NGhDZ081MTQ/view?usp=sharing)
-* [shortwave-intermittency-1h.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZeHpacjdsbnV6TDQ/view?usp=sharing)
-* [shortwave-intermittency-90min.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZTHhMMnJ3XzFGTFE/view?usp=sharing)
-* [shortwave-intermittency-2h.nc.tar.bz2](https://drive.google.com/file/d/0B0GuL0rQokUZaHJhZXd1STJnVXc/view?usp=sharing)
+* [shortwave-intermittency-base.nc.tar.bz2](https://drive.google.com/file/d/1hridtrEXFgybZL8SCTDK9bTdKgvjTrAv/view?usp=sharing)
+* [shortwave-intermittency-6min.nc.tar.bz2](https://drive.google.com/file/d/10Ji0pCwb6P2r9fiKdx5A-rtF-oXntJWo/view?usp=sharing)
+* [shortwave-intermittency-15min.nc.tar.bz2](https://drive.google.com/file/d/1ytp8_jMZMBtpDFOjlLBmAs7dw58o6sBs/view?usp=sharing)
+* [shortwave-intermittency-30min.nc.tar.bz2](https://drive.google.com/file/d/15Th9s0ORN60SUmGjuvtitDC-WYzVv02v/view?usp=sharing)
+* [shortwave-intermittency-1h.nc.tar.bz2](https://drive.google.com/file/d/1ya2vnKK7GR0h9KJW0VlYq_geqdeQsV0c/view?usp=sharing)
+* [shortwave-intermittency-90min.nc.tar.bz2](https://drive.google.com/file/d/1eVZIkR933FHj30HmyV8zSOu4OjgKpyCd/view?usp=sharing)
+* [shortwave-intermittency-2h.nc.tar.bz2](https://drive.google.com/file/d/1MtPOLy4mlT4C4HDuwaQiJj9rjBb8wka3/view?usp=sharing)
 
 In order to use the results with the supplied scripts, download the
 compressed NetCDF files above to the directory `results` and unpack.
