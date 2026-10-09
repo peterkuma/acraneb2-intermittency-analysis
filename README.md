@@ -274,3 +274,8 @@ Usage
 
     # Plot longwave heating rate time series.
     ../heating_rate_timeseries.R longwave_heating_rate_timeseries.json
+
+License
+-------
+
+This software is available under the terms of the [MIT license](LICENSE.md).
