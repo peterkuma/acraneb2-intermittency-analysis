@@ -1,11 +1,11 @@
 ACRANEB2 Intermittency Analysis
 ===============================
 
-This repository contains analysis of intermittency implementation
-in the ACRANEB2 radiation scheme in the NWP model ALADIN.
-
-See [peterkuma/masters-thesis](https://github.com/peterkuma/masters-thesis/)
-for details.
+This repository contains analysis of intermittency implementation in the
+ACRANEB2 radiation scheme in the NWP model ALADIN for the master's degree
+thesis [Broadband approach as a framework for implementation of radiative
+transfer scheme with selective intermittency: Cost versus accuracy
+study](https://doi.org/10.5281/zenodo.3764236).
 
 Results
 -------
